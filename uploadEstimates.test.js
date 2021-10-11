@@ -1343,12 +1343,14 @@ describe('uploadEstimates tests', () => {
 
     it('handleChange shows toastr error for invalid file', () => {
         // arrange
+        const mockFileName = 'test.csv';
+        const mockFile = {
+            name: mockFileName
+        };
         const fakeFileInput = {
             0: {
                 files: [
-                    {
-                        name: 'test.csv'
-                    }
+                    mockFile
                 ]
             },
             val: sinon.fake()
@@ -1364,7 +1366,7 @@ describe('uploadEstimates tests', () => {
             .append($('<li style="margin: 5px 0;"></li>').text('3'));
 
         sinon.replace(window.toastr, 'error', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake((mockFile, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
@@ -1444,7 +1446,7 @@ describe('uploadEstimates tests', () => {
         };
 
         sinon.replace(window.toastr, 'info', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake((mockFile, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
@@ -1545,7 +1547,7 @@ describe('uploadEstimates tests', () => {
         };
 
         sinon.replace(window.toastr, 'info', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake((mockFile, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
@@ -1647,7 +1649,7 @@ describe('uploadEstimates tests', () => {
 
         fakeFileInput.val = sinon.fake();
         sinon.replace(window.toastr, 'info', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake((mockFile, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
@@ -1763,7 +1765,7 @@ describe('uploadEstimates tests', () => {
 
         fakeFileInput.val = sinon.fake();
         sinon.replace(window.toastr, 'info', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake((mockFile, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
