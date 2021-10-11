@@ -11,13 +11,13 @@ describe('uploadEstimates tests', () => {
     let allColumns = ['RATECARDID', 'SRID', 'QTR', 'YEAR', 'STREAM', 'HH', 'F2-5', 'F6-8', 'F911', 'F1214', 'F1517', 'F1820', 'F2124', 'F2529', 'F3034', 'F3539', 'F4044', 'F4549', 'F5054', 'F5564', 'F65+', 'M2-5', 'M6-8', 'M911', 'M1214', 'M1517', 'M1820', 'M2124', 'M2529', 'M3034', 'M3539', 'M4044', 'M4549', 'M5054', 'M5564', 'M65+'];
     let testCases = [
         [['RATECARDID', 'SRID', 'QTR', 'YEAR', 'STREAM', 'HH', 'F2-5', 'F6-8', 'F911', 'F1214', 'F1517', 'F1820', 'F2124', '', 'F3034', 'F3539', 'F4044', 'F4549', 'F5054', 'F5564', 'F65+', 'M2-5', 'M6-8', 'M911', 'M1214', 'M1517', 'M1820', 'M2124', 'M2529', 'M3034', 'M3539', 'M4044', 'M4549', 'M5054', 'M5564', 'M65+']],
-        [['RATECARDID', 'SRID', 'QTR', 'YEAR', 'STREAM', 'HH', 'F2-5', 'F6-8', 'F911', 'F1214', 'F1517', 'F1820', 'F2124', 'F2529', 'F3034', 'F3539', 'F4044', 'F4549', '', 'F5564', 'F65+', 'M2-5', 'M6-8', '', 'M1214', 'M1517', 'M1820', 'M2124', 'M2529', 'M3034', 'M3539', 'M4044', 'M4549', 'M5054', 'M5564', 'M65+']]     
+        [['RATECARDID', 'SRID', 'QTR', 'YEAR', 'STREAM', 'HH', 'F2-5', 'F6-8', 'F911', 'F1214', 'F1517', 'F1820', 'F2124', 'F2529', 'F3034', 'F3539', 'F4044', 'F4549', '', 'F5564', 'F65+', 'M2-5', 'M6-8', '', 'M1214', 'M1517', 'M1820', 'M2124', 'M2529', 'M3034', 'M3539', 'M4044', 'M4549', 'M5054', 'M5564', 'M65+']]
     ];
-    
+
     testCases.forEach(([parsedColumns], index) => {
         it(`validateFileContents returns false for missing columns (#${allColumns.map((el, ind, array) => { if (!parsedColumns.includes(el)) return ind; else return -1; }).filter((el) => el !== -1).toString()})`, () => {
             // arrange
-            const rows = [];  
+            const rows = [];
             const nonDemoColumns = {
                 SellingRotationId: "SRID",
                 Quarter: "QTR",
@@ -48,7 +48,7 @@ describe('uploadEstimates tests', () => {
             expect(toastrArgs[2].showAsHtml).toBeTruthy();
         });
     });
-    
+
     allColumns = ['RATECARDID', 'SRID', 'QTR', 'YEAR', 'STREAM', 'HH', 'F2-5', 'F6-8', 'F911', 'F1214', 'F1517', 'F1820', 'F2124', 'F2529', 'F3034', 'F3539', 'F4044', 'F4549', 'F5054', 'F5564', 'F65+', 'M2-5', 'M6-8', 'M911', 'M1214', 'M1517', 'M1820', 'M2124', 'M2529', 'M3034', 'M3539', 'M4044', 'M4549', 'M5054', 'M5564', 'M65+'];
     testCases = [
         [['RATECARDID', 'SRID', 'QTR', 'YEAR', 'STREAM', 'HH', 'F2-5', 'F6-8', 'F911', 'F1214', 'F1517', 'F1820', 'F2124', '', 'F3034', 'F3539', 'F4044', 'F4549', 'F5054', 'F5564', 'F65+', 'M2-5', 'M6-8', 'M911', 'M1214', 'M1517', 'M1820', 'M2124', 'M2529', 'M3034', 'M3539', 'M4044', 'M4549', 'M5054', 'M5564', 'M65+']],
@@ -59,7 +59,6 @@ describe('uploadEstimates tests', () => {
         it(`validateFileContents returns false for missing nonDemoColumns (#${allColumns.map((el, ind, array) => { if (!parsedColumns.includes(el)) return ind; else return -1; }).filter((el) => el !== -1).toString()})`, () => {
             // arrange
             const rows = [];
-            //const fakeShowValidationErrorToast = sinon.fake();     
             const nonDemoColumns = {
                 SellingRotationId: "SRID",
                 Quarter: "QTR",
@@ -90,7 +89,7 @@ describe('uploadEstimates tests', () => {
             expect(toastrArgs[2].showAsHtml).toBeTruthy();
         });
     });
-    
+
     allColumns = ['RATECARDID', 'SRID', 'QTR', 'YEAR', 'STREAM', 'HH', 'F2-5', 'F6-8', 'F911', 'F1214', 'F1517', 'F1820', 'F2124', 'F2529', 'F3034', 'F3539', 'F4044', 'F4549', 'F5054', 'F5564', 'F65+', 'M2-5', 'M6-8', 'M911', 'M1214', 'M1517', 'M1820', 'M2124', 'M2529', 'M3034', 'M3539', 'M4044', 'M4549', 'M5054', 'M5564', 'M65+'];
     testCases = [
         [['RATECARDID', 'SRID', 'QTR', 'YEAR', 'STREAM', 'HH', 'F2-5', 'F6-8', 'F911', 'F1214', 'F1517', 'F1820_', 'F2124', 'F2529', 'F3034', 'F3539', 'F4044', 'F4549', 'F5054', 'F5564', 'F65+', 'M2-5', 'M6-8', 'M911', 'M1214', 'M1517', 'M1820', 'M2124', 'M2529', 'M3034', 'M3539', 'M4044', 'M4549', 'M5054', 'M5564', 'M65+']],
@@ -100,7 +99,6 @@ describe('uploadEstimates tests', () => {
         it(`validateFileContents returns false for having header values with special characters`, () => {
             // arrange
             const rows = [];
-            //const fakeShowValidationErrorToast = sinon.fake();     
             const nonDemoColumns = {
                 SellingRotationId: "SRID",
                 Quarter: "QTR",
@@ -108,7 +106,6 @@ describe('uploadEstimates tests', () => {
                 DeliveryStream: "STREAM",
                 RatecardId: 'RATECARDID'
             };
-            const validHeader = /^[a-zA-Z0-9\-\+]+$/;
 
             var expectedErrors = $('<ul style="list-style: circle; margin-left: 10px;"></ul>').text('One or more of the following File validations failed. Upload cannot be completed.');
             expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("One or more required fields for Header row is blank"));
@@ -117,7 +114,6 @@ describe('uploadEstimates tests', () => {
             expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Duplicate rows found"));
             expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Commas not allowed"));
             expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Past quarters not allowed"));
-
 
             sinon.replace(window.toastr, 'error', sinon.fake());
 
@@ -133,7 +129,7 @@ describe('uploadEstimates tests', () => {
             expect(toastrArgs[2].showAsHtml).toBeTruthy();
         });
     });
-    
+
     it('validateFileContents returns false for more than one row for a combination of columns: selling rotation id, quarter, year, PRICE PERIOD NAME, delivery stream and ratecard id', () => {
         // arrange
         const nonDemoColumns = {
@@ -167,10 +163,7 @@ describe('uploadEstimates tests', () => {
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Commas not allowed"));
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Past quarters not allowed"));
 
-        var expectedErrors2 = `,There are 2 rows for the combination of these values: selling rotation id (49999), quarter (3), year (2021), PRICE PERIOD NAME (PB2), delivery stream (PL) and ratecard id (16),There are 2 rows for the combination of these values: selling rotation id (50000), quarter (3), year (2021), PRICE PERIOD NAME (null), delivery stream (C3) and ratecard id (16)`;
-
         sinon.replace(window.toastr, 'error', sinon.fake());
-        //window.uploadEstimates.testingOnly.override.showValidationErrorToast(fakeShowValidationErrorToast);
 
         // act
         const result = window.uploadEstimates.testingOnly.validateFileContents(nonDemoColumns, rows, parsedColumns);
@@ -183,7 +176,7 @@ describe('uploadEstimates tests', () => {
         expect(toastrArgs[1]).toBeNull();
         expect(toastrArgs[2].showAsHtml).toBeTruthy();
     });
-    
+
     it('validateFileContents returns false due to having null or empty values in rows', () => {
         // arrange
         const nonDemoColumns = {
@@ -215,11 +208,7 @@ describe('uploadEstimates tests', () => {
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Commas not allowed"));
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Past quarters not allowed"));
 
-        var expectedErrors2 = `,For these columns (SRID,F1517) values are null in this row: 4,For these columns (F2-5) values are null in this row: 6`;
-
-
         sinon.replace(window.toastr, 'error', sinon.fake());
-        //window.uploadEstimates.testingOnly.override.showValidationErrorToast(fakeShowValidationErrorToast);
 
         // act
         const result = window.uploadEstimates.testingOnly.validateFileContents(nonDemoColumns, rows, parsedColumns);
@@ -232,7 +221,7 @@ describe('uploadEstimates tests', () => {
         expect(toastrArgs[1]).toBeNull();
         expect(toastrArgs[2].showAsHtml).toBeTruthy();
     });
-    
+
     it('validateFileContents returns false due to having format value errors in rows', () => {
         // arrange
         const nonDemoColumns = {
@@ -264,11 +253,7 @@ describe('uploadEstimates tests', () => {
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Commas not allowed"));
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Past quarters not allowed"));
 
-        var expectedErrors2 = `,For these numeric columns (SRID,F6-8) values contain characters in this row: 2,For the Delivery Stream column values contain special characters in this row: 3,For the Delivery Stream column values contain special characters in this row: 4,For the Price Period Name column values contain not allowed characters in this row: 7,For the Price Period Name column values contain not allowed characters in this row: 8`;
-
-
         sinon.replace(window.toastr, 'error', sinon.fake());
-        //window.uploadEstimates.testingOnly.override.showValidationErrorToast(fakeShowValidationErrorToast);
 
         // act
         const result = window.uploadEstimates.testingOnly.validateFileContents(nonDemoColumns, rows, parsedColumns);
@@ -281,7 +266,7 @@ describe('uploadEstimates tests', () => {
         expect(toastrArgs[1]).toBeNull();
         expect(toastrArgs[2].showAsHtml).toBeTruthy();
     });
-    
+
     it('validateFileContents returns false due to having invalid row quarters values', () => {
         // arrange
         const nonDemoColumns = {
@@ -313,12 +298,8 @@ describe('uploadEstimates tests', () => {
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Commas not allowed"));
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text("Past quarters not allowed"));
 
-        var expectedErrors2 = `,For the quarter / year columns values are less than the current quarter / year in this row: 4,For the quarter / year columns values are less than the current quarter / year in this row: 7`;
-
-
         sinon.replace(window.toastr, 'error', sinon.fake());
         sinon.replace(window, 'currQtr', '4Q/2021');
-        //window.uploadEstimates.testingOnly.override.showValidationErrorToast(fakeShowValidationErrorToast);
 
         // act
         const result = window.uploadEstimates.testingOnly.validateFileContents(nonDemoColumns, rows, parsedColumns);
@@ -331,7 +312,7 @@ describe('uploadEstimates tests', () => {
         expect(toastrArgs[1]).toBeNull();
         expect(toastrArgs[2].showAsHtml).toBeTruthy();
     });
-    
+
     it('validateFileContents returns true, no data validations found', () => {
         // arrange
         const nonDemoColumns = {
@@ -365,7 +346,6 @@ describe('uploadEstimates tests', () => {
         it(`validateFileContentWithSpecificValidationMessages returns false for missing columns (#${allColumns.map((el, ind, array) => { if (!parsedColumns.includes(el)) return ind; else return -1; }).filter((el) => el !== -1).toString()})`, () => {
             // arrange
             const rows = [];
-            //const fakeShowValidationErrorToast = sinon.fake();     
             const nonDemoColumns = {
                 SellingRotationId: "SRID",
                 Quarter: "QTR",
@@ -408,7 +388,6 @@ describe('uploadEstimates tests', () => {
         it(`validateFileContentWithSpecificValidationMessages returns false for missing nonDemoColumns (#${allColumns.map((el, ind, array) => { if (!parsedColumns.includes(el)) return ind; else return -1; }).filter((el) => el !== -1).toString()})`, () => {
             // arrange
             const rows = [];
-            //const fakeShowValidationErrorToast = sinon.fake();     
             const nonDemoColumns = {
                 SellingRotationId: "SRID",
                 Quarter: "QTR",
@@ -531,10 +510,7 @@ describe('uploadEstimates tests', () => {
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text(`There are 2 rows for the combination of these values: selling rotation id (49999), quarter (4), year (2021), ppname (PB2), delivery stream (PL) and ratecard id (16)`));
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text(`There are 2 rows for the combination of these values: selling rotation id (50000), quarter (4), year (2021), ppname (null), delivery stream (C3) and ratecard id (16)`));
 
-        var expectedErrors2 = `,There are 2 rows for the combination of these values: selling rotation id (49999), quarter (3), year (2021), ppname (PB2), delivery stream (PL) and ratecard id (16),There are 2 rows for the combination of these values: selling rotation id (50000), quarter (3), year (2021), ppname (null), delivery stream (C3) and ratecard id (16)`;
-
         sinon.replace(window.toastr, 'error', sinon.fake());
-        //window.uploadEstimatesWithPricePeriod.testingOnly.override.showValidationErrorToast(fakeShowValidationErrorToast);
 
         // act
         const result = window.uploadEstimates.testingOnly.validateFileContentWithSpecificValidationMessages(nonDemoColumns, rows, parsedColumns);
@@ -576,11 +552,7 @@ describe('uploadEstimates tests', () => {
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text(`For these columns (SRID,F1517) values are null in this row: 4`));
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text(`For these columns (F2-5) values are null in this row: 6`));
 
-        var expectedErrors2 = `,For these columns (SRID,F1517) values are null in this row: 4,For these columns (F2-5) values are null in this row: 6`;
-
-
         sinon.replace(window.toastr, 'error', sinon.fake());
-        //window.uploadEstimatesWithPricePeriod.testingOnly.override.showValidationErrorToast(fakeShowValidationErrorToast);
 
         // act
         const result = window.uploadEstimates.testingOnly.validateFileContentWithSpecificValidationMessages(nonDemoColumns, rows, parsedColumns);
@@ -625,11 +597,7 @@ describe('uploadEstimates tests', () => {
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text(`For the Price Period Name column values contain not allowed characters in this row: 7`));
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text(`For the Price Period Name column values contain not allowed characters in this row: 8`));
 
-        var expectedErrors2 = `,For these numeric columns (SRID,F6-8) values contain characters in this row: 2,For the Delivery Stream column values contain special characters in this row: 3,For the Delivery Stream column values contain special characters in this row: 4,For the Price Period Name column values contain not allowed characters in this row: 7,For the Price Period Name column values contain not allowed characters in this row: 8`;
-
-
         sinon.replace(window.toastr, 'error', sinon.fake());
-        //window.uploadEstimatesWithPricePeriod.testingOnly.override.showValidationErrorToast(fakeShowValidationErrorToast);
 
         // act
         const result = window.uploadEstimates.testingOnly.validateFileContentWithSpecificValidationMessages(nonDemoColumns, rows, parsedColumns);
@@ -671,12 +639,8 @@ describe('uploadEstimates tests', () => {
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text(`For the quarter / year columns values are less than the current quarter / year in this row: 4`));
         expectedErrors.append($('<li style="margin: 5px 0;"></li>').text(`For the quarter / year columns values are less than the current quarter / year in this row: 7`));
 
-        var expectedErrors2 = `,For the quarter / year columns values are less than the current quarter / year in this row: 4,For the quarter / year columns values are less than the current quarter / year in this row: 7`;
-
-
         sinon.replace(window.toastr, 'error', sinon.fake());
         sinon.replace(window, 'currQtr', '4Q/2021');
-        //window.uploadEstimatesWithPricePeriod.testingOnly.override.showValidationErrorToast(fakeShowValidationErrorToast);
 
         // act
         const result = window.uploadEstimates.testingOnly.validateFileContentWithSpecificValidationMessages(nonDemoColumns, rows, parsedColumns);
@@ -748,7 +712,7 @@ describe('uploadEstimates tests', () => {
         expect(typeof fakeAddButton.getCall(1).args[1]).toEqual('function');
         done();
     });
-    
+
     it('convertToDto returns object for false value in featureFlagPricePeriodEnabledForCsvUploadFile', () => {
 
         // arrange
@@ -921,7 +885,6 @@ describe('uploadEstimates tests', () => {
         sinon.replace(window.toastr, 'error', sinon.fake());
         sinon.replace(window.toastr, 'success', sinon.fake());
         sinon.replace(window.toastr, 'info', sinon.fake());
-        //sinon.replace(window.toastr.dialog, 'warning', sinon.fake());
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
         window.uploadEstimates.testingOnly.override.showConfirmationDialog(fakeShowConfirmationDialog);
         window.uploadEstimates.testingOnly.override.uploadEstimate(fakeUploadEstimate);
@@ -1065,8 +1028,6 @@ describe('uploadEstimates tests', () => {
 
         sinon.replace(window.rateCard, 'ajax', fakeRateCardAjax);
         sinon.replace(window.toastr, 'info', sinon.fake());
-        //sinon.replace(window, 'confirm', fakeWindowConfirm);
-        //sinon.replace(window.toastr, 'dialog', fakeDialog);
 
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
         window.uploadEstimates.testingOnly.override.showConfirmationDialog(fakeShowOverrideDialog);
@@ -1086,13 +1047,6 @@ describe('uploadEstimates tests', () => {
 
             expect(fakeShowOverrideDialog.callCount).toEqual(1);
             expect(fakeShowOverrideDialog.getCall(0).args[0]).toEqual('test');
-
-            //expect(window.toastr.info.callCount).toEqual(1);
-            //expect(window.toastr.info.getCall(0).args[0]).toEqual(toastInfoMessage);
-            //expect(window.toastr.info.getCall(0).args[1]).toEqual(null);
-            //expect(window.toastr.info.getCall(0).args[2].tapToDismiss).toBeFalsy();
-            //expect(window.toastr.info.getCall(0).args[2].extendedTimeOut).toEqual(0);
-            //expect(window.toastr.info.getCall(0).args[2].timeOut).toEqual(0);
 
             //expect(fakeUploadEstimate.callCount).toEqual(1);
             //expect(fakeUploadEstimate.getCall(0).args[0]).toEqual(expectedEstimates);
@@ -1410,7 +1364,7 @@ describe('uploadEstimates tests', () => {
             .append($('<li style="margin: 5px 0;"></li>').text('3'));
 
         sinon.replace(window.toastr, 'error', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake((undefined, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
@@ -1490,12 +1444,11 @@ describe('uploadEstimates tests', () => {
         };
 
         sinon.replace(window.toastr, 'info', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake((undefined, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
         window.uploadEstimates.testingOnly.override.validateFileContents(fakeValidateFileContents);
-        //window.uploadEstimates.testingOnly.override.validateFileContentWithSpecificValidationMessages(fakeValidateFileContentWithSpecificValidationMessages);
         window.uploadEstimates.testingOnly.override.convertToDto(fakeConvertToDto);
         window.uploadEstimates.testingOnly.override.validateEstimateUpload(fakeValidateEstimateUpload);
         window.uploadEstimates.testingOnly.override.featureFlagPricePeriodEnabledForCsvUploadFile(false);
@@ -1507,7 +1460,6 @@ describe('uploadEstimates tests', () => {
         expect(result).toBeUndefined();
         expect(window.Papa.parse.callCount).toEqual(1);
         expect(window.Papa.parse.getCall(0).args[0]).toEqual(mockFile);
-        //expect(window.Papa.parse.getCall(0).args[0]).toEqual(undefined);
 
         const parseOptions = window.Papa.parse.getCall(0).args[1];
         expect(parseOptions.header).toBeTruthy();
@@ -1593,11 +1545,10 @@ describe('uploadEstimates tests', () => {
         };
 
         sinon.replace(window.toastr, 'info', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake((undefined, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
-        //window.uploadEstimates.testingOnly.override.validateFileContents(fakeValidateFileContents);
         window.uploadEstimates.testingOnly.override.validateFileContentWithSpecificValidationMessages(fakeValidateFileContentWithSpecificValidationMessages);
         window.uploadEstimates.testingOnly.override.convertToDto(fakeConvertToDto);
         window.uploadEstimates.testingOnly.override.validateEstimateUpload(fakeValidateEstimateUpload);
@@ -1610,7 +1561,6 @@ describe('uploadEstimates tests', () => {
         expect(result).toBeUndefined();
         expect(window.Papa.parse.callCount).toEqual(1);
         expect(window.Papa.parse.getCall(0).args[0]).toEqual(mockFile);
-        //expect(window.Papa.parse.getCall(0).args[0]).toEqual(undefined);
 
         const parseOptions = window.Papa.parse.getCall(0).args[1];
         expect(parseOptions.header).toBeTruthy();
@@ -1697,7 +1647,7 @@ describe('uploadEstimates tests', () => {
 
         fakeFileInput.val = sinon.fake();
         sinon.replace(window.toastr, 'info', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake((undefined, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
@@ -1813,11 +1763,10 @@ describe('uploadEstimates tests', () => {
 
         fakeFileInput.val = sinon.fake();
         sinon.replace(window.toastr, 'info', sinon.fake());
-        sinon.replace(window.Papa, 'parse', sinon.fake((undefined, { complete }) => {
+        sinon.replace(window.Papa, 'parse', sinon.fake(({ }, { complete }) => {
             complete(mockParseResult);
         }));
         window.uploadEstimates.testingOnly.override.$fileInput(fakeFileInput);
-        //window.uploadEstimates.testingOnly.override.validateFileContents(fakeValidateFileContents);
         window.uploadEstimates.testingOnly.override.validateFileContentWithSpecificValidationMessages(fakeValidateFileContentWithSpecificValidationMessages);
         window.uploadEstimates.testingOnly.override.convertToDto(fakeConvertToDto);
         window.uploadEstimates.testingOnly.override.validateEstimateUpload(fakeValidateEstimateUpload);
@@ -1901,7 +1850,6 @@ describe('uploadEstimates tests', () => {
         // assert
         expect(result).toBeUndefined();
         expect(fakeHandleChange.callCount).toEqual(1);
-        //expect(window.uploadEstimates.testingOnly.featureFlagPricePeriodEnabledForCsvUploadFile).toBeTruthy();
 
         window.advisorSettings = advisorSettingsRightValue; //restore 
         var inputs = document.querySelectorAll(".test-uploadEstimates-0");
@@ -1934,7 +1882,6 @@ describe('uploadEstimates tests', () => {
         // assert
         expect(result).toBeUndefined();
         expect(fakeHandleChange.callCount).toEqual(1);
-        //expect(window.uploadEstimates.testingOnly.featureFlagPricePeriodEnabledForCsvUploadFile).toBeFalsy();
         window.advisorSettings = advisorSettingsRightValue; //restore 
         var inputs = document.querySelectorAll(".test-uploadEstimates-0");
         if (inputs) {
@@ -1966,7 +1913,6 @@ describe('uploadEstimates tests', () => {
         // assert
         expect(result).toBeUndefined();
         expect(fakeHandleChange.callCount).toEqual(1);
-        //expect(window.uploadEstimates.testingOnly.featureFlagPricePeriodEnabledForCsvUploadFile).toBeFalsy();
         window.advisorSettings = advisorSettingsRightValue; //restore 
         var inputs = document.querySelectorAll(".test-uploadEstimates-0");
         if (inputs) {
